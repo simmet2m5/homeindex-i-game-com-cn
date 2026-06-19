@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://simmet2m5.github.io/homeindex-i-game-com-cn/sitemap.xml

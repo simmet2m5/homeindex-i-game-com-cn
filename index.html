@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f2f4f6;
+            color: #1e2a3a;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e2e7ed;
+            padding: 3rem 2.5rem 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #10161c;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #3c4a5a;
+            max-width: 680px;
+        }
+
+        .section-card {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e4e9ef;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .section-card h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: #14212d;
+            margin-bottom: 1rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 2px solid #eef2f7;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin: 1.2rem 0 0.4rem;
+        }
+
+        .feature-item {
+            background: #f8fafc;
+            padding: 0.9rem 1.2rem;
+            border-radius: 12px;
+            border-left: 4px solid #b3c9de;
+            font-size: 0.95rem;
+            color: #1f3040;
+        }
+
+        .feature-item strong {
+            display: inline-block;
+            color: #0d2740;
+            margin-bottom: 0.15rem;
+        }
+
+        .scene-list {
+            list-style: none;
+            margin: 1rem 0 0;
+        }
+
+        .scene-list li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%235b7b9c" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>') left center no-repeat;
+            background-size: 1.1rem;
+            color: #2b3f53;
+        }
+
+        .faq-mini {
+            background: #f6f9fd;
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            margin: 1rem 0 0.2rem;
+            border: 1px solid #dce3ec;
+        }
+
+        .faq-mini dt {
+            font-weight: 600;
+            color: #0b1d2e;
+            margin-top: 0.9rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-mini dt:first-child {
+            margin-top: 0;
+        }
+
+        .faq-mini dd {
+            margin: 0.1rem 0 0.8rem 0.8rem;
+            color: #2f4258;
+            font-size: 0.92rem;
+        }
+
+        .signature {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #dee5ee;
+            padding: 1.8rem 2.2rem;
+            margin-top: 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+            text-align: left;
+            font-size: 0.98rem;
+            color: #30455c;
+        }
+
+        .signature a {
+            color: #1d5a8b;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed #b0c7de;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .signature a:hover {
+            color: #0b3860;
+            border-bottom: 1px solid #0b3860;
+        }
+
+        .note-tip {
+            background: #f4f8fb;
+            border-radius: 14px;
+            padding: 1rem 1.6rem;
+            margin: 1.2rem 0 0;
+            font-size: 0.92rem;
+            border-left: 5px solid #a7bfd7;
+            color: #1b334b;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #dce3ec;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1.4rem;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .section-card {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .faq-mini {
+                padding: 1rem 1rem;
+            }
+
+            .signature {
+                padding: 1.2rem 1.4rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+
+            .section-card h2 {
+                font-size: 1.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 开场 · 稳定入口 -->
+    <div class="hero">
+        <h1>爱游戏：一个可依赖的起点</h1>
+        <p>信息过载的时代，找到一个清晰、稳定的入口比以往更重要。<br>
+        <a href="https://homeindex-i-game.com.cn" style="color:#1d5a8b;text-decoration:none;font-weight:500;border-bottom:1px dashed #b0c7de;">爱游戏</a> 提供的正是这样一个页面——它不追逐浮夸，更在意让每一位浏览者快速理解站点结构与内容边界。</p>
+    </div>
+
+    <!-- 内容说明 · 承接段落 -->
+    <div class="section-card">
+        <h2>页面说明 · 定位与结构</h2>
+        <p style="margin-bottom:0.6rem;">作为站点的首页索引，<strong>爱游戏</strong> 的核心任务是清晰地陈列板块导航与功能分区。页面不采用冗长的轮播或密集的跳转弹窗，而是通过扁平化卡片与静态链接组织信息，降低认知负荷。</p>
+        <p>每一个模块都对应明确的主题方向：游戏资讯、玩法指南、社区动态以及平台公告。用户可依据自身兴趣直接定位，无需反复翻找。这种设计思路源自对“稳定入口”的坚持——降低每一次点击前的犹豫，也减少页面不必要的重定向。</p>
+    </div>
+
+    <!-- 特点列表 · 信息密度稍高 -->
+    <div class="section-card">
+        <h2>四项关键特点</h2>
+        <div class="feature-grid">
+            <div class="feature-item">
+                <strong>静态索引结构</strong><br>
+                避免动态加载混乱，每个链接对应固定页面，便于书签与回溯。
+            </div>
+            <div class="feature-item">
+                <strong>低干扰排版</strong><br>
+                无自动播放视频、无弹窗浮层，内容获得优先展示权。
+            </div>
+            <div class="feature-item">
+                <strong>轻量加载</strong><br>
+                页面资源经过压缩，首屏渲染速度快，适配中低端设备与弱网环境。
+            </div>
+            <div class="feature-item">
+                <strong>语义化导航</strong><br>
+                链接文本直接反映目标内容，避免“点击这里”或模糊表述，提升可用性。
+            </div>
+        </div>
+        <div class="note-tip">
+            ⚡ 提示：首页仅作为导航中枢，所有内容板块均保持独立更新节奏。如需了解最新游戏动态或攻略合集，可直接从 <a href="https://homeindex-i-game.com.cn" style="color:#1d5a8b;text-decoration:none;font-weight:500;">爱游戏</a> 页面内的对应分区进入。
+        </div>
+    </div>
+
+    <!-- 使用场景 · 嵌入提示 -->
+    <div class="section-card">
+        <h2>典型使用场景</h2>
+        <ul class="scene-list">
+            <li>新用户初次访问，通过首页快速了解站点提供哪些游戏相关服务。</li>
+            <li>老玩家需要查找特定攻略或版本公告，直接通过导航卡片跳转，无需搜索。</li>
+            <li>运营人员维护内容时，依据首页索引结构更新对应二级页面，保持整体一致性。</li>
+            <li>移动端用户通过简化布局，在小屏幕上依然获得清晰的条目层级。</li>
+        </ul>
+        <hr style="margin:1rem 0 0.6rem;">
+        <p style="font-size:0.92rem;color:#38516b;">上述场景均围绕一个前提：首页的定位是“工具入口”，而非内容聚合地。因此 <a href="https://homeindex-i-game.com.cn" style="color:#1d5a8b;text-decoration:none;font-weight:500;">爱游戏</a> 的每一个链接都经过筛选，避免堆砌无效信息。</p>
+    </div>
+
+    <!-- FAQ 摘要 + 温和结尾 -->
+    <div class="section-card">
+        <h2>常见疑问摘要</h2>
+        <dl class="faq-mini">
+            <dt>Q：首页会频繁改版吗？</dt>
+            <dd>A：不会。导航结构保持稳定，仅会在新增板块或调整分类时进行微调，每次变更都会在更新日志中说明。</dd>
+            <dt>Q：页面内的链接是否都是安全的？</dt>
+            <dd>A：所有指向站内的链接均经过人工审核，无隐藏跳转或第三方广告植入。</dd>
+            <dt>Q：移动端与桌面端体验是否一致？</dt>
+            <dd>A：核心信息与导航条目完全一致，布局上针对小屏做了自适应优化，但不会隐藏关键链接。</dd>
+        </dl>
+    </div>
+
+    <!-- 结尾段落 · 温和收束 -->
+    <div class="signature">
+        <p>从一次浏览到长期使用，首页的价值往往体现在那些“不被注意”的细节里：明确的层级、克制的装饰、始终如一的链接行为。<a href="https://homeindex-i-game.com.cn">爱游戏</a> 首页在设计时反复权衡过这些要素，最终呈现为一个安静、直接且值得信赖的出发点。如果你正在寻找一个不喧哗、不打扰的游戏内容索引，或许可以把它加入书签，在需要时随时打开。</p>
+        <p style="margin-top:0.8rem;color:#4d5f73;font-size:0.9rem;">—— 页面结构及内容说明 · 基于稳定入口理念构建</p>
+    </div>
+
+</div>
+</body>
+</html>
