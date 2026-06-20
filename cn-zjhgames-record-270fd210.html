@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品说明 · 炸金花</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f7f5f2;
+            color: #2c2c2c;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #1b1e22 0%, #282d34 100%);
+            color: #eae7e0;
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #f7f5f2;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 350;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            color: #f1ede6;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            max-width: 640px;
+            margin: 0.6rem auto 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 0.8rem;
+        }
+
+        .hero .meta {
+            font-size: 0.85rem;
+            opacity: 0.5;
+            margin-top: 1rem;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 960px;
+            margin: -1.2rem auto 2rem;
+            padding: 0 2rem 2.5rem;
+            position: relative;
+            z-index: 2;
+            flex: 1;
+        }
+
+        .section {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .section:hover {
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #b49a6b;
+            padding-left: 1rem;
+            color: #2a2a2a;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 450;
+            margin: 1.2rem 0 0.5rem;
+            color: #3d3d3d;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        a {
+            color: #b0753a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: rgba(176, 117, 58, 0.3);
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        a:hover {
+            color: #8b5d2e;
+            text-decoration-color: #8b5d2e;
+        }
+
+        .highlight-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.4rem;
+            margin-top: 1.2rem;
+        }
+
+        .highlight-item {
+            flex: 1 1 200px;
+            background: #f9f6f0;
+            padding: 1.2rem 1rem;
+            border-radius: 20px;
+            border: 1px solid #ece6db;
+            transition: background 0.2s;
+        }
+
+        .highlight-item:hover {
+            background: #f3ede3;
+        }
+
+        .highlight-item strong {
+            display: block;
+            font-size: 1rem;
+            color: #8a6f4a;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.3px;
+        }
+
+        .highlight-item span {
+            font-size: 0.95rem;
+            color: #3f3f3f;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem 1.6rem;
+            margin-top: 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dashed #ddd8cf;
+        }
+
+        .faq-item q {
+            font-style: normal;
+            font-weight: 480;
+            color: #3d3d3d;
+        }
+
+        .faq-item .ans {
+            margin-top: 0.25rem;
+            font-size: 0.95rem;
+            color: #5c5c5c;
+        }
+
+        .note-box {
+            background: #f2efe8;
+            padding: 1.2rem 1.6rem;
+            border-radius: 24px;
+            margin: 1.5rem 0 0.8rem;
+            border-left: 5px solid #b49a6b;
+            font-size: 0.98rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ece5d9;
+            padding: 0.1rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #6a5a44;
+            margin-right: 0.3rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem 1.5rem;
+            color: #7a7a7a;
+            font-size: 0.85rem;
+            border-top: 1px solid #e3ddd2;
+            margin-top: auto;
+            background: #faf8f5;
+        }
+
+        footer small {
+            display: block;
+            margin-top: 0.2rem;
+            opacity: 0.7;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+            .hero {
+                padding: 3rem 1.2rem 2.8rem;
+            }
+            .content {
+                padding: 0 1.2rem 1.8rem;
+            }
+            .section {
+                padding: 1.6rem 1.2rem;
+            }
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+            .highlight-card {
+                flex-direction: column;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+            .section {
+                padding: 1.2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <h1>炸金花 · 产品说明</h1>
+        <div class="sub">关于一款规则简明但牌局变化丰富的经典<br>再次查阅 · 收藏 · 持续关注</div>
+        <div class="meta">收录于 2025 · 轻量说明</div>
+    </header>
+
+    <main class="content">
+
+        <!-- 摘要：开篇叙述 -->
+        <section class="section">
+            <h2>为什么又打开了这个页面</h2>
+            <p>有些东西值得反复回看——比如《炸金花》的玩法脉络与取舍。这里不是教程站，更像一份安静搁在书架上的说明卡。如果您是第二次或第三次回到这里，大概是想重新确认某些细节，或者单纯觉得放在收藏夹里比较安心。</p>
+            <p>页面所描述的内容基于 <a href="https://cn-zjhgames.com">炸金花</a> 的通用规则与常见对局习惯，不包含诱导充值或竞技排名，只把牌型、大小关系和基本策略说清楚。如果您只是突然想不起「同花」和「顺子」谁大，翻到下面即可。</p>
+        </section>
+
+        <!-- 亮点：牌局特征 & 卡片式呈现 -->
+        <section class="section">
+            <h2>几个值得留意的亮点</h2>
+            <div class="highlight-card">
+                <div class="highlight-item">
+                    <strong>牌型体系 · 稳定</strong>
+                    <span>豹子、同花顺、金花、顺子、对子、散牌……层级关系多年未变，背熟即用。</span>
+                </div>
+                <div class="highlight-item">
+                    <strong>人数弹性 · 灵活</strong>
+                    <span>2–6 人均可开局，人数越少，偷鸡与诈唬的空间越微妙。</span>
+                </div>
+                <div class="highlight-item">
+                    <strong>心理比重 · 突出</strong>
+                    <span>相比纯概率游戏，炸金花更考验下注节奏与对手解读，这也是其长期吸引玩家的原因。</span>
+                </div>
+                <div class="highlight-item">
+                    <strong>低门槛 · 深策略</strong>
+                    <span>三张牌，一分钟学会，但玩到精需要几十上百局的积累。</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 使用建议 / 场景 -->
+        <section class="section">
+            <h2>使用建议 · 场景与节奏</h2>
+            <p>不论您是线上匹配还是朋友小聚，有两点可能值得留意：</p>
+            <ul style="margin-left: 1.4rem; margin-bottom: 1rem; line-height: 2; color: #444;">
+                <li><strong>熟悉牌型优先级：</strong> 开局前在脑中过一遍大小链，避免「同花输给顺子」的基础失误。</li>
+                <li><strong>控制回合与底注：</strong> 建议每局设置封顶轮次或金额，尤其熟人局，保持娱乐感比赢几手更重要。</li>
+                <li><strong>复盘自己的弃牌：</strong> 有时候放弃比跟注更考验判断，可以偶尔回看自己的弃牌是否过于保守。</li>
+            </ul>
+            <div class="note-box">
+                <span class="tag">📌 备忘</span> 如果您把此页加入书签，下次可以直接定位到「亮点」或「牌型概要」部分，不用重新搜索。
+            </div>
+        </section>
+
+        <!-- FAQ 摘要：克制但有用 -->
+        <section class="section">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <q>同花和顺子哪个大？</q>
+                    <div class="ans">在标准规则中，顺子大于同花。但注意同花顺是顶级牌型之一（仅次于豹子）。</div>
+                </div>
+                <div class="faq-item">
+                    <q>235 能赢豹子吗？</q>
+                    <div class="ans">部分变体规则中，不同花色的 2、3、5 可以克制豹子，但多数通用规则不采用此设定，建议开局前确认。</div>
+                </div>
+                <div class="faq-item">
+                    <q>适合多少人玩？</q>
+                    <div class="ans">2–6 人均可，4–5 人时对抗与节奏比较平衡，也容易观察对手习惯。</div>
+                </div>
+                <div class="faq-item">
+                    <q>线上版本有区别吗？</q>
+                    <div class="ans">主要差别在于计时、自动弃牌以及是否显示牌桌历史。核心牌型与大小逻辑没有变化。</div>
+                </div>
+            </div>
+            <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #666;">更详细的规则解释可以随时回到 <a href="https://cn-zjhgames.com">炸金花</a> 相关页面查看，那里保持更新，但不做频繁推送。</p>
+        </section>
+
+        <!-- 可信但克制的访问说明 -->
+        <section class="section">
+            <h2>关于访问与收藏</h2>
+            <p>本站点提供的是说明性内容，不收集任何个人数据，也没有弹窗或强制关注。您可以放心将此页保存在书签栏，或者截图留存关键部分。</p>
+            <p>如果您是经朋友转发再次找到这里，欢迎随意浏览。信息保持克制，不夸大策略胜率，也不渲染「必赢技巧」。所有内容均基于常见规则整理，请根据实际对局灵活调整。</p>
+            <div style="margin-top: 1rem; padding: 0.2rem 0; border-top: 1px solid #eee7db;">
+                <p style="margin-bottom: 0.2rem;">🔖 推荐操作：</p>
+                <p>浏览器收藏夹名称建议直接用「<a href="https://cn-zjhgames.com">炸金花</a>」三个字，方便后期检索。</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>产品说明页 · 基于通用规则编写</p>
+        <small>内容仅供参考，实际玩法以具体对局约定为准。</small>
+    </footer>
+</body>
+</html>
