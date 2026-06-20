@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JRS直播 · 赛事知识导览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf6f0;
+            font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.8;
+            color: #2c2c2c;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 880px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.04);
+            padding: 2.5rem 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1rem 0.8rem; }
+            .page { padding: 1.8rem 1.2rem; }
+        }
+
+        /* 知识库目录感 */
+        .hero {
+            border-bottom: 1px solid #e6ddd0;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #1e1e1e;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6b5e4e;
+            background: #f2ede7;
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 450;
+        }
+
+        /* 说明区 / 文章排版 */
+        .section {
+            margin-bottom: 2.4rem;
+        }
+
+        .section h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #3a322a;
+            border-left: 4px solid #c9b89f;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+            font-size: 1rem;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 引用块 + 提示框风格 */
+        .insight-box {
+            background: #f8f3eb;
+            border-left: 5px solid #b7a185;
+            padding: 1.3rem 1.6rem;
+            border-radius: 12px 4px 12px 4px;
+            margin: 1.8rem 0;
+            color: #3d342b;
+        }
+
+        .insight-box strong {
+            color: #7b5d3e;
+            font-weight: 600;
+        }
+
+        .tip-card {
+            background: #fefcf8;
+            border: 1px solid #e3d9cc;
+            border-radius: 16px;
+            padding: 1.2rem 1.6rem;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .tip-card .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #9f8b78;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+        }
+
+        @media (max-width: 560px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+        }
+
+        .info-item {
+            background: #faf6f0;
+            padding: 1rem 1.2rem;
+            border-radius: 14px;
+            border: 1px solid #e8dfd4;
+        }
+
+        .info-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #2c241c;
+        }
+
+        .info-item p {
+            font-size: 0.94rem;
+            color: #4a4037;
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #7f623d;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #c9b89f;
+            transition: border 0.15s;
+        }
+
+        .inline-link:hover {
+            border-bottom: 1px solid #7f623d;
+            color: #4f3b26;
+        }
+
+        .faq-mini {
+            background: #f5efe8;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            margin-top: 1.8rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3c2e1f;
+            padding: 0.2rem 0;
+        }
+
+        .faq-mini p {
+            margin-top: 0.5rem;
+            color: #4b4139;
+        }
+
+        .footer-note {
+            margin-top: 2.8rem;
+            padding-top: 1rem;
+            border-top: 1px solid #ece3d9;
+            font-size: 0.85rem;
+            color: #7a6c5c;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero + 快速识别 -->
+    <div class="hero">
+        <h1>JRS直播 · 赛事知识库</h1>
+        <span class="sub">📖 用途速览 · 目录式说明</span>
+    </div>
+
+    <!-- 说明区：从用户快速识别角度 -->
+    <div class="section">
+        <h2>🔍 如何快速理解这个站点</h2>
+        <p>
+            当你第一次进入一个体育直播聚合站，最关心的往往是：<strong>“这里能看到什么？”</strong> 与 <strong>“怎么找到我需要的比赛？”</strong>。
+            <a href="https://hot-jrs.com" class="inline-link">JRS直播</a> 正是围绕这两个核心问题组织内容——它将各类体育赛事信号按联赛、时间、热门程度进行归类，界面以列表和卡片为主，减少冗余信息。从首页结构看，用户可快速识别出「当前直播」「即将开始」「热门回放」等模块，无需深度浏览即可定位。
+        </p>
+        <p>
+            与许多同类站点不同，该站点更强调<span style="background: #f0e9e0; padding: 0.1rem 0.4rem; border-radius: 6px;">目录感</span>的导航：左侧或顶部通常设有赛事类别入口（足球、篮球、网球、电竞等），每个类别下又细分为具体联赛。这种设计让新用户能在几秒内建立心智地图——知道目标赛事在哪个分类下。
+        </p>
+    </div>
+
+    <!-- 知识库式特点 + 提示框 -->
+    <div class="section">
+        <h2>📂 特点 · 信息组织方式</h2>
+        <p>
+            基于对页面的观察，<strong>JRS直播</strong> 的内容呈现遵循「层级清晰 + 即时反馈」原则。每一个直播卡片都包含：赛事名称、对阵双方、开赛时间/进行状态、以及信号源标识。用户无需点入详情即可判断是否为自己关注的比赛。
+        </p>
+
+        <div class="insight-box">
+            <strong>💡 知识卡片：</strong> 聚合站的价值不在于拥有多少信号，而在于<em>检索效率</em>。根据常见使用场景，平台通常将「热门足球联赛」「NBA」「欧冠」等高频条目置顶或单独分区，减少滚动成本。
+        </div>
+
+        <div class="tip-card">
+            <span class="label">📌 提示</span>
+            如果你是第一次接触这类站点，建议先浏览「全部赛事」或「赛程」页面，了解当日有哪些主要比赛。<a href="https://hot-jrs.com" class="inline-link">JRS直播</a> 的赛程列表通常以时间轴排序，已经结束的比赛会标注比分，方便回顾。
+        </div>
+    </div>
+
+    <!-- 相关信息区：场景与FAQ摘要 -->
+    <div class="section">
+        <h2>🧩 相关信息 · 使用场景</h2>
+        <div class="grid-2col">
+            <div class="info-item">
+                <h3>⚽ 足球场景</h3>
+                <p>五大联赛、欧冠、亚冠、世界杯预选赛。多数比赛提供多线路选择，适应不同网络环境。</p>
+            </div>
+            <div class="info-item">
+                <h3>🏀 篮球场景</h3>
+                <p>NBA、CBA、欧洲篮球联赛。关注焦点战或季后赛时，可直接通过「热门」入口进入。</p>
+            </div>
+            <div class="info-item">
+                <h3>🎾 网球 & 其他</h3>
+                <p>大满贯、ATP/WTA巡回赛，以及电竞、格斗等赛事。分类索引让小众项目也不难找。</p>
+            </div>
+            <div class="info-item">
+                <h3>📱 移动端适配</h3>
+                <p>页面针对手机屏幕做了简化，赛事卡片竖排显示，触控友好。适合通勤或碎片时间。</p>
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 用 details 做小型折叠 -->
+        <div class="faq-mini">
+            <details>
+                <summary>❓ 常见问题摘要 — 怎样快速找到想看的比赛？</summary>
+                <p>
+                    多数情况下，你可以直接使用页面上的「搜索」或「筛选」功能（如果提供）。若没有，则通过分类导航逐级进入：先选运动种类，再选联赛，最后查看当前或即将开始的比赛。<br>
+                    另外，记住站内通常有一个「正在直播」专区，那里汇集了所有此时有信号的赛事，是最快捷的入口。
+                </p>
+            </details>
+            <details style="margin-top: 0.6rem;">
+                <summary>📅 赛程信息会提前多久展示？</summary>
+                <p>
+                    通常未来 24–48 小时的比赛会出现在赛程列表中，部分热门联赛会提前一周显示。不过具体时间以各联赛官方安排为准，聚合站会同步更新。
+                </p>
+            </details>
+        </div>
+    </div>
+
+    <!-- 收尾提示区 + 再次自然链接 -->
+    <div class="section" style="margin-bottom: 0.2rem;">
+        <p style="font-size: 0.95rem; background: #f8f3eb; padding: 1rem 1.2rem; border-radius: 14px;">
+            <span style="font-weight: 500;">⏳ 使用建议：</span> 如果你希望长期关注某一联赛，可以留意 <a href="https://hot-jrs.com" class="inline-link">JRS直播</a> 是否有「关注」或「收藏」功能（部分版本支持）。利用好分类索引和赛程时间轴，能最大程度减少寻找比赛的时间。
+        </p>
+    </div>
+
+    <!-- 底部静默提示 -->
+    <div class="footer-note">
+        知识库导览 · 基于公开界面结构整理 · 内容仅供参考
+    </div>
+
+</div>
+</body>
+</html>
